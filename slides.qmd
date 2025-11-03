@@ -8,10 +8,16 @@ format:
     slide-number: true
     incremental: true
   beamer:
-    theme: Madrid
-    colortheme: default
+    theme: default
+    pdf-engine: xelatex
+    include-in-header: |
+      \usepackage{hyperref}
+      \hypersetup{
+        colorlinks=true,
+        urlcolor=blue
+      }
 execute:
-  echo: false   # hide code output 
+  echo: false
   warning: false
   message: false
 ---
@@ -83,10 +89,13 @@ p
 
 You can view my CV here:
 
-**CV (PDF link):** 
-[📄 View my full CV (PDF)](cv.pdf){target="_blank"}
+::: {.content-visible when-format="revealjs"}
+[📄 **Click here to open my CV (PDF)**](cv.pdf){target="_blank"}
+:::
 
-
+::: {.content-visible when-format="beamer"}
+\href{cv.pdf}{\textcolor{blue}{\underline{📄 Click here to open my CV (PDF)}}}
+:::
 
 
 
