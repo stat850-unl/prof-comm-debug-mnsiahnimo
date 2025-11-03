@@ -1,0 +1,94 @@
+---
+title: "About Me"
+author: "Michael Nsiah-Nimo"
+date: today
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: true
+  beamer:
+    theme: Madrid
+    colortheme: default
+execute:
+  echo: false   # hide code output 
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+# Create a sample plot to reuse later
+library(dplyr)
+library(ggplot2)
+
+library(skimr)
+library(readr)
+
+cookies <- read_csv("choc_chip_cookie_ingredients.csv")
+
+cols <- c("Rating", "Ingredient", "Text", "Recipe_Index", "Quantity", "Unit")
+
+key_ingredients <- cookies %>%
+  filter(Ingredient %in% c("salt", "baking soda", "vanilla extract", 
+                           "all purpose flour", "sugar", "butter"))
+
+
+# Plot quantities by recoded Unit (0 = teaspoon, 1 = cup)
+p <- ggplot(key_ingredients, aes(x = as.factor(Unit), y = Quantity, fill = Ingredient)) +
+  geom_boxplot() +
+  scale_x_discrete(labels = c("0" = "teaspoon", "1" = "cup", "NA" = "other")) +
+  labs(title = "Quantities of Key Ingredients by Unit",
+       x = "Unit", y = "Quantity (scaled to 48 cookies)") 
+```
+
+## Introduction
+
+* Hi, I’m **Michael Nsiah-Nimo**.
+* I’m a statistician currently pursuing graduate studies in Statistics.
+* I’m passionate about music and find peace in playing the piano—it’s my safe space.
+* I also enjoy photography and exploring creative adventures whenever I can.
+
+
+---
+
+## Who I Am
+* **Birthday:** July 02, 1992 
+* **Grew up:** Accra, Ghana
+* **Now:** Lincoln, Nebraska — studying and working in the field of Statistics
+* **Interests:** Photography,media & music 🎶, Hiking, Statistics
+
+
+## Picture of Me
+![my favorite me-picture](me.jpeg)
+
+
+## Favorite Animal 
+
+The **African Fish Eagle** is my favorite animal. Its loud call is amazing and is called the "Voice of Africa," which makes it even more special. I think it’s a very powerful bird
+
+![African Fish Eagle](eagle.png)
+
+## My Favorite Plot (from class)
+
+
+```{r}
+#| echo: false
+#| fig-cap: "Quantities of Key Ingredients by Unit"
+p
+```
+
+
+## My CV / Résumé
+
+You can view my CV here:
+
+**CV (PDF link):** 
+[📄 View my full CV (PDF)](cv.pdf){target="_blank"}
+
+
+
+
+
+
+## Thank you
