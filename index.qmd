@@ -2,7 +2,7 @@
 title: "Homework: Reproducibility and Professional Communication"
 execute:
   error: true
-author: "Your Name"
+author: "Michael Nsiah-Nimo"
 output: html_document
 
 ---
@@ -47,19 +47,27 @@ Then, using what you know about R and Python, try to debug the problem using the
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+- No.
+- The question lacks key context although the goal is explained.
+- The exact error or unexpected output is not clear. For instance does it throw an error? or just not update `meals`.
+- I don’t see how `meals` was created. I cannot tell if `meals` is supposed to live outside the function (global) or be returned. 
+
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+- No.
+- The variable `meals` is not defined globally or passed as an argument.
+- The code doesn’t return anything or modify the global environment.
+- Define `meals` before calling the function: Modify the function to return the updated vector:
+and the show how the function is used:
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+- Yes. The function and one vector are all that's needed. It is free of unnecessary details.
 
 4. Does the question describe any attempted solutions?
 
-> <!-- Your answer here -->
+- No. There’s no mention of what the user tried (e.g., using return(), or reassigning the vector).
 
 
 ## Function not working R
@@ -98,20 +106,28 @@ mean(z$nitrate,na.rm=TRUE)
 ---
 
 1. Are the question and problem description complete?
+ - The context is clear. Also the code and error messages are included which is great for debugging
+ - The inputs and data used are not provided. For e.g. it is not clear what is inside `directory` argument.
+ - Although, I can infer that they expect the mean of `nitrate` values, but it's not stated. The intended behavior isn't explicitly stated.
 
-> <!-- Your answer here -->
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
+- No
+- The code cannot run as-is because:
+- The directory `directory` doesn’t exist.
+- `specdata` and `nitrate` are passed as unquoted variables instead of strings.
+- The data files (.csvs) are not provided.
 
-> <!-- Your answer here -->
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
+- Moderately minimal
+-The user shows only the essential function and test.
+- However, there’s unnecessary absolute file path clutter `("/Users/mike...Desktop/directory")`, which could be replaced with a simple local path.
 
-> <!-- Your answer here -->
 
 4. Does the question describe any attempted solutions?
-
-> <!-- Your answer here -->
+- Yes, but implicitly.
+- The user mentions “It works when I type all steps individually, but not inside the function.” That shows an attempted diagnostic, but they don’t articulate what they think is wrong or what they’ve tried to fix it.
 
 
 ## Inexplicable error when trying to export my R notebook
@@ -140,19 +156,27 @@ You can find this sample file [here](https://raw.githubusercontent.com/unl-stati
 
 1. Are the question and problem description complete?
 
-> <!-- Your answer here -->
+- Almost, but not fully.
+- The exact error is stated which is good. 
+- Due to the nature of the error an actual data structure description (or at least str(Gastropods) or names(Gastropods)) is important, because R is literally saying: there’s no column called Species at knit-time.
+- There is an `i` which I  think in the presentation of the problem was included as part of the chunk, which I think could be breaking the knit.
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+- No.In R,`library(ggplot2, dplyr)` does not load two packages. It doesn’t work like Python imports. 
+- That line loads only ggplot2. So in the knitted document, `dplyr` is never loaded, and then `filter(...)` may not behave as expected.
+- Also because it was mentioned that it works might be because the user run `dplyr` earlier in console. But in R markdown, when it knits , it starts on a clean session.
+- To make it reproducible the code chunk should have `library(ggplot2), library(dplyr), Gastropods <- read.csv("MaroubraZones.csv")`
+- Alternatively , user could include a simple data set mimicking actual data , so that no csv is needed.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
-
-> <!-- Your answer here -->
+- Mostly Yes.
+- The example includes only what’s necessary to reproduce the error — loading libraries, reading the dataset, filtering, and plotting. That’s a good sign of minimality. However, if the goal is just to debug the `filter()` error, the plotting section and extra formatting aren’t required.
 
 4. Does the question describe any attempted solutions?
-
-> <!-- Your answer here -->
+- No.
+- The mention for instance “No spelling errors or anything,” which shows they checked one thing. But they didn’t say: `“I tried dplyr::filter(...)”, “I tried moving library(dplyr) to the first chunk”, “I checked names(Gastropods) inside the knitted doc”. `
+- Adding items which they actually tried, would have shown the direction of the problem a bit more clearer.
 
 
 ## Python if elif else statement
@@ -196,20 +220,29 @@ if country == "Canada":
 ---
 
 1. Are the question and problem description complete?
-
-> <!-- Your answer here -->
+- Yes. 
+- They clearly describe the issue.What they’re trying to do: calculate shipping cost.
+- The issue: “Whatever my total is, the same amount comes out.”
+- They also includes sample inputs (“$6 for US and $8 for Canada”)
+- I think from the previous examples. They could have stated what they expected to happen for certain totals. The expectations vs actual comparisons could help readers see the. logic of the issue faster
 
 2. Is the issue reproducible? Does it have a description of the problem, with code that reproduces the problem? What could improve it?
 
-> <!-- Your answer here -->
+- Yes. The provided code is runnable as-is and the issue (always printing $6 or $8) is reproducible.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
-> <!-- Your answer here -->
+- Yes. 
+- The code contains only: variable inputs, conditional logic and print statements
+- No unnecessary loops, imports, or extra formatting.
+- I think employing a fewer branches while keeping it readable will make it more minimal, but it’s already concise.
 
 4. Does the question describe any attempted solutions?
-
-> <!-- Your answer here -->
+- Not fully
+- They describe the symptom but not what they’ve tried to fix it. 
+- They could improve by adding: “I tried using int(total) but got an error,”
+or “I added print statements but can’t see why it doesn’t change.”
+- That shows debugging effort and helps responders focus on the numeric-type issue.
 
 
 # Professional Communication

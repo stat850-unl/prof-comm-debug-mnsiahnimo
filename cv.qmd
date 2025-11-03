@@ -1,0 +1,90 @@
+---
+author: Michael Nsiah-Nimo
+title: Research Statistican
+tagline: 
+  field1: Michael Nsiah-Nimo
+  field2: Research Statistician 
+  field3: Nebraska, USA
+  colored: michael20129648@gmail.com
+  field5: Nebraska, USA
+format:
+  modern-cv-pdf: default
+cvfooter:
+  left: "mr.schochastics.net"
+  right: "github.com/schochastics"
+cvcolor: 	FF9600 #without `#`
+bgcolor: 616161
+cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
+cvmeta:
+  - title: Status
+    text: Research Statistician for Border Biomedical Research, BBRC
+  - title: Field
+    text: Statistics, Biostatistics , Data Science, Data Analytics and Visualization
+  - title: Techs
+    text: R, bash, Python, SQL, Tableau
+execute:
+  echo: false
+---
+
+```{r}
+#| label: cvevents
+cvevents <- function(tbl, when, what, where, para1,para2) {
+
+    command_start <- "\\cvevent"
+
+    res <- paste0(
+        command_start, "{", tbl[[when]], "}", 
+        "{", tbl[[what]], "}",
+        "{", tbl[[where]], "}",
+        "{", tbl[[para1]], "}",
+        "{", tbl[[para2]], "}"
+        )
+
+    cat(res, sep = "\n")
+}
+```
+
+
+# Experience
+
+
+```{r}
+#| label: experience
+#| output: asis
+tibble::tribble(
+    ~role, ~institution, ~dates, ~details, ~para1, ~para2,
+    "Research Statistician", "BBRC", "2020 to now",
+    "Transparent Social Analytics, Department of Computational Social Science",
+    "Developed and validated ML predictive models (robust regression, penalized regression, deep neural networks) and applied unsupervised methods (clustering, PCA) to uncover risk factors, patterns, and performance drivers", "Optimized model evaluation and prediction accuracy in developing diagnostic and therapeutic strategies to reduce Hispanic cancer disparities using genetic, molecular and physiological signatures",
+    "Data Analyst", "BBRC", "2018 - 2020",
+    "Sociology Department", "Conducted quality control and validation of analytical outputs(tables,visualizations),reports for regulatory and business reporting", "Analyses of large scale and unstructured data sets with R, Python and SQL",
+    "Lecturer/ Research Associate", "Analytic Unit, UTEP", "2015 - 2018", "Chair of Social Networks", "Analyzed treatment efficacy in emergency department settings by employing linear mixed models and interaction plots, uncovering significant patterns of illicit drug use, such as cocaine and cannabis, across different age groups and genders, to inform tailored intervention strategies","Collaborated on statistical research projects, enhancing methodologies for data interpretation and contributing to manuscripts reviewed for publication in peer-reviewed journals"
+
+) |>
+    cvevents(when = "dates", what = "role", where = "institution", para1 = "para1", para2 = "para2")
+```
+
+# Education
+
+```{r }
+#| label: education
+#| output: asis
+tibble::tribble(
+  ~degree, ~uni, ~loc, ~dates, ~para1, ~para2,
+  "Masters in Statistics", "UTEP", "Texas, USA", "2015 - 2017",
+  "Thesis: Sample Size Analysis of Linear Mixed Models with Dependent End-Points",
+  "Developed sample size estimation framework for multi-endpoint mixed models using R",
+  
+  "Bachelor's in Actuarial Science", "KNUST", "Kumasi, Ghana", "2010 - 2014",
+  "Thesis: Time Series and Co-Integration Analysis of Stock Prices in Ghana",
+  "Implemented and compared time series forecasting algorithms in R."
+) |>
+  cvevents(
+    when = "dates",
+    what = "degree",
+    where = "loc",
+    para1 = "para1",
+    para2 = "para2"
+  )
+
+```
