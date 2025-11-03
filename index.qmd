@@ -58,8 +58,8 @@ Then, using what you know about R and Python, try to debug the problem using the
 - No.
 - The variable `meals` is not defined globally or passed as an argument.
 - The code doesn’t return anything or modify the global environment.
-- Define `meals` before calling the function: Modify the function to return the updated vector:
-and the show how the function is used:
+- Define `meals` before calling the function. Second, modify the function to return the updated vector,
+and the show how the function is used.
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
 
@@ -117,6 +117,7 @@ mean(z$nitrate,na.rm=TRUE)
 - The directory `directory` doesn’t exist.
 - `specdata` and `nitrate` are passed as unquoted variables instead of strings.
 - The data files (.csvs) are not provided.
+- The issue isn’t reproducible because the directory and data files are missing, and arguments aren’t passed as strings. It could be improved by using real paths, quoting arguments (e.g., "specdata", "nitrate"), and including small sample data so the code runs end-to-end.
 
 
 3. Is the example minimal? Does it include extra code or information that is not necessary?
