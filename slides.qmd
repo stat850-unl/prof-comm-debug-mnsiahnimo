@@ -89,14 +89,14 @@ p
 
 You can view my CV here:
 
+
 ::: {.content-visible when-format="revealjs"}
-[📄 **Click here to open my CV (PDF)**](cv.pdf){target="_blank"}
+[📄 **Open my CV**](https://drive.google.com/file/d/1A-8GfdheYxq0GpC-E6OAb1mfoOQUwAnt/view?usp=sharing){target="_blank"}
 :::
 
 ::: {.content-visible when-format="beamer"}
-\href{cv.pdf}{\textcolor{blue}{\underline{📄 Click here to open my CV (PDF)}}}
+\href{https://drive.google.com/file/d/1A-8GfdheYxq0GpC-E6OAb1mfoOQUwAnt/view?usp=sharing}{\textcolor{blue}{\underline{📄 Open my CV}}}
 :::
-
 
 
 
